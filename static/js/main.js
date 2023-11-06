@@ -5,6 +5,7 @@ $(document).ready(function () {
     $("#loading").show();
     let uploadedImage = new FormData($("#upload-form")[0]);
 
+
     $.ajax({
       type: "POST",
       url: "/predict",
@@ -16,8 +17,8 @@ $(document).ready(function () {
       success: function (data) {
         $("#loading").hide();
 
-        content = "<button class='btn btn-danger'>Error</button>";
-        if (data["status"] == "success") {
+        //content = "<button class='btn btn-danger'>Error</button>";
+        //(data["status"] == "success") {
           content =
             "<p>Bird: <strong>" +
             data["bird"] +
@@ -33,7 +34,7 @@ $(document).ready(function () {
 
           $("#imageWidget").attr("src", data["image"]);
           $("#imageWidget").show();
-        }
+        //}
 
         $("#result").html(content);
         console.log(data);
